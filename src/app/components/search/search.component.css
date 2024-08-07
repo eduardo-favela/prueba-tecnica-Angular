@@ -1,0 +1,10 @@
+::ng-deep .principalLoader .p-dialog-content {
+    padding: 0 !important;
+}
+
+::ng-deep .principalLoader .p-dialog-draggable .p-dialog-header {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background: transparent;
+    box-shadow: none;
+}

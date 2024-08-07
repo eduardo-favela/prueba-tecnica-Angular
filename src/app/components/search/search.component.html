@@ -1,0 +1,57 @@
+<p-toast></p-toast>
+<p-dialog styleClass="border-round-2xl" styleClass="shadow-none" class="principalLoader border-round" position="center"
+    [visible]="loading" [resizable]="false" [closable]="false" [style]="{width: '70%'}">
+    <ng-template pTemplate="header">
+        <div class="grid w-full flex justify-content-center">
+            <div class="col-10">
+                <app-card-loader [loading]="loading"></app-card-loader>
+                <span class="text-center">
+                    <h5 class="mt-2">
+                        Obteniendo información
+                    </h5>
+                </span>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<div class="flex flex-column p-4 gap-5">
+
+    <div class="grid flex justify-content-center">
+        <div class="col-12 md:col-6 text-center">
+            <h2>
+                Buscar platillos
+            </h2>
+        </div>
+    </div>
+
+    <div class="grid flex justify-content-center">
+        <div class="col-12 md:col-6 flex ">
+            <p-iconField class="w-full" iconPosition="left">
+                <p-inputIcon styleClass="pi pi-search" />
+                <input class="w-full" type="text" pInputText placeholder="Introduce texto" />
+            </p-iconField>
+        </div>
+    </div>
+
+    <div class="grid flex justify-content-center">
+        <div class="col-12 md:col-6 flex ">
+            <p-dropdown class="w-full" styleClass="w-full" [options]="categories" [(ngModel)]="selectedCategory"
+                optionLabel="name" [filter]="true" filterBy="strCategory" [showClear]="true"
+                placeholder="Selecciona una categoría">
+                <ng-template pTemplate="selectedItem" let-selectedOption>
+                    <div class="flex align-items-center gap-2">
+                        <img [src]="selectedOption.strCategoryThumb" style="width: 2rem" />
+                        <div>{{ selectedOption.strCategory }}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-category pTemplate="item">
+                    <div class="flex align-items-center gap-2">
+                        <img [src]="category.strCategoryThumb" style="width: 2rem" />
+                        <div>{{ category.strCategory }}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+    </div>
+</div>
