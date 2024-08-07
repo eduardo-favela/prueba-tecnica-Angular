@@ -65,7 +65,6 @@ export interface Meal {
     strTags: string,
     strYoutube: string,
     ingredients: string[],
-    measures: string[],
     strSource: string,
     strImageSource: string,
     strCreativeCommonsConfirmed: string,

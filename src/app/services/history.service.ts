@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HistoryItem } from '../Interfaces/history';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
 
-  private history: string[] = [];
+  private history: HistoryItem[] = [];
 
-  addSearch(query: string): void {
-    this.history.push(query);
+  addSearch(item: HistoryItem): void {
+    this.history.push(item);
   }
 
-  getHistory(): string[] {
+  getHistory(): HistoryItem[] {
     return this.history;
   }
 }

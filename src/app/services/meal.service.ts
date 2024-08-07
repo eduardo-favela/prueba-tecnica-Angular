@@ -42,11 +42,8 @@ export class MealService {
       const ingredient = meal[`strIngredient${i}` as keyof RawMeal];
       const measure = meal[`strMeasure${i}` as keyof RawMeal];
 
-      if (ingredient && ingredient.trim()) {
-        ingredients.push(ingredient);
-      }
-      if (measure && measure.trim()) {
-        measures.push(measure);
+      if ((ingredient && ingredient.trim()) && (measure && measure.trim())) {
+        ingredients.push(`${ingredient} ${measure}`);
       }
     }
 
@@ -61,7 +58,6 @@ export class MealService {
       strTags: meal.strTags,
       strYoutube: meal.strYoutube,
       ingredients,
-      measures,
       strSource: meal.strSource,
       strImageSource: meal.strImageSource,
       strCreativeCommonsConfirmed: meal.strCreativeCommonsConfirmed,

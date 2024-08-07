@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HistoryService } from '../../services/history.service';
 import { Router } from '@angular/router';
+import { HistoryItem } from '../../Interfaces/history';
 
 @Component({
   selector: 'app-history',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './history.component.css'
 })
 export class HistoryComponent {
-  history: string[] = [];
+  history: HistoryItem[] = [];
 
   constructor(private historyService: HistoryService, private router: Router) { }
 
@@ -18,5 +19,9 @@ export class HistoryComponent {
 
   search(query: string): void {
     this.router.navigate(['/index'], { queryParams: { name: query } });
+  }
+
+  deleteContact(id: any) {
+    console.log(id)
   }
 }

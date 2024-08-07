@@ -29,8 +29,8 @@
         <div class="col-12 md:col-6 flex ">
             <p-iconField class="w-full" iconPosition="left">
                 <p-inputIcon styleClass="pi pi-search" />
-                <input ngClass="border-round-2xl surface-100" [(ngModel)]="searchInput"
-                    (keyup)="searchMeals('mealName')" class="w-full" type="text" pInputText
+                <input ngClass="border-round-2xl surface-100" [(ngModel)]="searchInput" (blur)="saveHistory()"
+                    (ngModelChange)="searchMeals('mealName')" class="w-full" type="text" pInputText
                     placeholder="Introduce texto" />
             </p-iconField>
         </div>

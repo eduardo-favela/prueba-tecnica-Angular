@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Category, RawMeal } from '../../Interfaces/meal';
 import { MealService } from '../../services/meal.service';
 import { MessageService } from 'primeng/api';
+import { HistoryService } from '../../services/history.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,10 +19,22 @@ export class SearchComponent {
 
   meals: RawMeal[] = [];
 
-  constructor(private mealService: MealService, private messageService: MessageService) { }
+  constructor(
+    private mealService: MealService,
+    private messageService: MessageService,
+    private historyService: HistoryService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.getCategories();
+    this.activatedRoute.queryParams.subscribe(params => {
+      const searchInput = params['search'];
+      if (searchInput) {
+        this.searchInput = searchInput;
+        this.searchMeals('mealName')
+      }
+    });
   }
 
   getCategories() {
@@ -45,9 +59,9 @@ export class SearchComponent {
 
   searchMeals(searchType: string): void {
     this.meals = [];
-    this.loading = true
     let mealResponse: any;
     if (searchType === 'category') {
+      this.loading = true
       if (this.selectedCategory) {
         this.searchInput = '';
         this.mealService.getMealsByCategory(this.selectedCategory.strCategory).subscribe({
@@ -101,5 +115,12 @@ export class SearchComponent {
     } else if (this.selectedCategory) {
       this.router.navigate(['/index'], { queryParams: { category: this.selectedCategory } });
     } */
+  }
+
+  saveHistory() {
+    this.historyService.addSearch({
+      query: this.searchInput,
+      date: new Date()
+    })
   }
 }
