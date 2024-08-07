@@ -24,6 +24,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { CardLoaderComponent } from './components/card-loader/card-loader.component';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { ChipModule } from 'primeng/chip';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ToastModule } from 'primeng/toast';
     DialogModule,
     ProgressBarModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    ScrollPanelModule,
+    ChipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

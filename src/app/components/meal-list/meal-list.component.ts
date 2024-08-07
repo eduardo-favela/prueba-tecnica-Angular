@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Meal } from '../../Interfaces/meal';
+import { RawMeal } from '../../Interfaces/meal';
 import { MealService } from '../../services/meal.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MealService } from '../../services/meal.service';
   styleUrl: './meal-list.component.css'
 })
 export class MealListComponent {
-  meals: Meal[] = [];
+  @Input() meals: RawMeal[] = [];
 
   constructor(private route: ActivatedRoute, private mealService: MealService) { }
 

@@ -29,10 +29,11 @@
   </div>
 
   <div class="min-h-screen flex flex-column relative flex-auto">
-    <p-toolbar class="px-3 pt-3 block surface-section md:hidden z-1 surface-border" styleClass="surface-section">
+    <p-toolbar class="px-3 pt-3 block surface-section md:hidden z-1 surface-border"
+      styleClass="border-round-2xl surface-section">
       <div class="p-toolbar-group-start">
         <div class="flex gap-3">
-          <div class="flex align-items-center justify-content-center flex-shrink-0 mt-3" style="height:3rem">
+          <div class="flex align-items-center justify-content-center flex-shrink-0" style="height:3rem">
             <img class="h-full" src="assets/img/meal-dish.png" alt="meal-dish">
           </div>
           <a routerLink="index" pRipple
@@ -49,7 +50,7 @@
       </div>
     </p-toolbar>
     <div class="p-3 flex flex-column flex-auto">
-      <div class="border-1 surface-border border-round surface-section flex-auto">
+      <div class="border-1 surface-border border-round-2xl surface-section flex-auto">
         <router-outlet></router-outlet>
       </div>
     </div>

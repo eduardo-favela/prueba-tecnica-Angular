@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Meal, RawMeal } from '../Interfaces/meal';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,44 @@ export class MealService {
 
   getMealDetails(id: string): Observable<any> {
     const params = new HttpParams().set('i', id)
-    return this.http.get(`${this.baseUrl}/lookup.php`, { params });
+    return this.http.get(`${this.baseUrl}/lookup.php`, { params }).pipe(
+      map(response => (response as any).meals.map(this.transformMeal))
+    );
+  }
+
+
+  private transformMeal(meal: RawMeal): Meal {
+    const ingredients = [];
+    const measures = [];
+
+    for (let i = 1; i <= 20; i++) {
+      const ingredient = meal[`strIngredient${i}` as keyof RawMeal];
+      const measure = meal[`strMeasure${i}` as keyof RawMeal];
+
+      if (ingredient && ingredient.trim()) {
+        ingredients.push(ingredient);
+      }
+      if (measure && measure.trim()) {
+        measures.push(measure);
+      }
+    }
+
+    return {
+      idMeal: meal.idMeal,
+      strMeal: meal.strMeal,
+      strDrinkAlternate: meal.strDrinkAlternate,
+      strCategory: meal.strCategory,
+      strArea: meal.strArea,
+      strInstructions: meal.strInstructions,
+      strMealThumb: meal.strMealThumb,
+      strTags: meal.strTags,
+      strYoutube: meal.strYoutube,
+      ingredients,
+      measures,
+      strSource: meal.strSource,
+      strImageSource: meal.strImageSource,
+      strCreativeCommonsConfirmed: meal.strCreativeCommonsConfirmed,
+      dateModified: meal.dateModified,
+    };
   }
 }

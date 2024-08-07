@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent {
   ngOnInit() {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        this.currentRoute = event.url;
+        this.currentRoute = event.urlAfterRedirects;
       });
   }
 }

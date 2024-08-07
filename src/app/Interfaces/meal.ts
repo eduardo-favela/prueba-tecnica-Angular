@@ -1,4 +1,4 @@
-export interface Meal {
+export interface RawMeal {
     idMeal: string,
     strMeal: string,
     strDrinkAlternate: string,
@@ -48,6 +48,24 @@ export interface Meal {
     strMeasure18: string,
     strMeasure19: string,
     strMeasure20: string,
+    strSource: string,
+    strImageSource: string,
+    strCreativeCommonsConfirmed: string,
+    dateModified: string
+}
+
+export interface Meal {
+    idMeal: string,
+    strMeal: string,
+    strDrinkAlternate: string,
+    strCategory: string,
+    strArea: string,
+    strInstructions: string,
+    strMealThumb: string,
+    strTags: string,
+    strYoutube: string,
+    ingredients: string[],
+    measures: string[],
     strSource: string,
     strImageSource: string,
     strCreativeCommonsConfirmed: string,

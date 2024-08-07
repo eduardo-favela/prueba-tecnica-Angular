@@ -15,7 +15,7 @@
     </ng-template>
 </p-dialog>
 
-<div class="flex flex-column p-4 gap-5">
+<div class="flex flex-column p-3 gap-5">
 
     <div class="grid flex justify-content-center">
         <div class="col-12 md:col-6 text-center">
@@ -29,16 +29,18 @@
         <div class="col-12 md:col-6 flex ">
             <p-iconField class="w-full" iconPosition="left">
                 <p-inputIcon styleClass="pi pi-search" />
-                <input class="w-full" type="text" pInputText placeholder="Introduce texto" />
+                <input ngClass="border-round-2xl surface-100" [(ngModel)]="searchInput"
+                    (keyup)="searchMeals('mealName')" class="w-full" type="text" pInputText
+                    placeholder="Introduce texto" />
             </p-iconField>
         </div>
     </div>
 
     <div class="grid flex justify-content-center">
         <div class="col-12 md:col-6 flex ">
-            <p-dropdown class="w-full" styleClass="w-full" [options]="categories" [(ngModel)]="selectedCategory"
-                optionLabel="name" [filter]="true" filterBy="strCategory" [showClear]="true"
-                placeholder="Selecciona una categoría">
+            <p-dropdown class="w-full" styleClass="w-full border-round-2xl surface-100" [options]="categories"
+                [(ngModel)]="selectedCategory" optionLabel="strCategory" [filter]="true" filterBy="strCategory"
+                [showClear]="true" placeholder="Busca por categorías" (onChange)="searchMeals('category')">
                 <ng-template pTemplate="selectedItem" let-selectedOption>
                     <div class="flex align-items-center gap-2">
                         <img [src]="selectedOption.strCategoryThumb" style="width: 2rem" />
@@ -52,6 +54,12 @@
                     </div>
                 </ng-template>
             </p-dropdown>
+        </div>
+    </div>
+
+    <div class="grid flex justify-content-center">
+        <div class="col-12 md:col-6 flex ">
+            <app-meal-list class="w-full" [meals]="meals"></app-meal-list>
         </div>
     </div>
 </div>
