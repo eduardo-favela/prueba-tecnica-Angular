@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MealService } from '../../services/meal.service';
 import { MessageService } from 'primeng/api';
 
+
 @Component({
   selector: 'app-meal-details',
   templateUrl: './meal-details.component.html',

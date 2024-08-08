@@ -3,30 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { SearchComponent } from './components/search/search.component';
 import { HistoryComponent } from './components/history/history.component';
 import { MealDetailsComponent } from './components/meal-details/meal-details.component';
 import { MealListComponent } from './components/meal-list/meal-list.component';
-import { SearchComponent } from './components/search/search.component';
+import { CardLoaderComponent } from './components/card-loader/card-loader.component';
+import { WildcardComponent } from './components/wildcard/wildcard.component';
 
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { WildcardComponent } from './components/wildcard/wildcard.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { CardLoaderComponent } from './components/card-loader/card-loader.component';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ChipModule } from 'primeng/chip';
 import { IonicModule } from '@ionic/angular';
+
+
+import { MealService } from './services/meal.service';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +46,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ButtonModule,
@@ -48,7 +54,6 @@ import { IonicModule } from '@ionic/angular';
     InputTextModule,
     IconFieldModule,
     InputIconModule,
-    HttpClientModule,
     DropdownModule,
     ToolbarModule,
     DialogModule,
@@ -57,9 +62,10 @@ import { IonicModule } from '@ionic/angular';
     ToastModule,
     ScrollPanelModule,
     ChipModule,
-    IonicModule.forRoot({})
+    IonicModule.forRoot({}),
+    RouterModule.forRoot([]),
   ],
-  providers: [],
+  providers: [MealService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

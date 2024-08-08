@@ -14,16 +14,5 @@ export class MealListComponent {
   constructor(private route: ActivatedRoute, private mealService: MealService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      if (params['name']) {
-        this.mealService.searchMealsByName(params['name']).subscribe(data => {
-          this.meals = data.meals;
-        });
-      } else if (params['category']) {
-        this.mealService.getMealsByCategory(params['category']).subscribe(data => {
-          this.meals = data.meals;
-        });
-      }
-    });
   }
 }

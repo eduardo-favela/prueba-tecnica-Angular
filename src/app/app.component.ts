@@ -8,6 +8,7 @@ import { filter } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  title: string = 'the-meal-app'
   currentRoute: string = '';
 
   constructor(private router: Router) { }
