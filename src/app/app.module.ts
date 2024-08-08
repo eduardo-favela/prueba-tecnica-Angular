@@ -26,6 +26,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ChipModule } from 'primeng/chip';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ChipModule } from 'primeng/chip';
     MessagesModule,
     ToastModule,
     ScrollPanelModule,
-    ChipModule
+    ChipModule,
+    IonicModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

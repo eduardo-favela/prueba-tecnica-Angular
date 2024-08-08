@@ -118,9 +118,11 @@ export class SearchComponent {
   }
 
   saveHistory() {
-    this.historyService.addSearch({
-      query: this.searchInput,
-      date: new Date()
-    })
+    if (this.searchInput !== '') {
+      this.historyService.addSearch({
+        query: this.searchInput,
+        date: new Date()
+      })
+    }
   }
 }

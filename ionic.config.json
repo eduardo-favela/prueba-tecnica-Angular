@@ -1,0 +1,12 @@
+{
+  "defaultProject": "the-meal-app",
+  "projects": {
+    "the-meal-app": {
+      "name": "the-meal-app",
+      "integrations": {
+        "capacitor": {}
+      },
+      "type": "angular"
+    }
+  }
+}
