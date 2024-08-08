@@ -108,13 +108,6 @@ export class SearchComponent {
         this.meals = []
       }
     }
-    /*
-    PUEDE SERVIR PARA EL HISTORIAL
-    if (this.searchInput) {
-      this.router.navigate(['/index'], { queryParams: { name: this.searchInput } });
-    } else if (this.selectedCategory) {
-      this.router.navigate(['/index'], { queryParams: { category: this.selectedCategory } });
-    } */
   }
 
   saveHistory() {

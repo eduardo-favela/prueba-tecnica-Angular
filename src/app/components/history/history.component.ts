@@ -20,8 +20,4 @@ export class HistoryComponent {
   search(query: string): void {
     this.router.navigate(['/index'], { queryParams: { name: query } });
   }
-
-  deleteContact(id: any) {
-    console.log(id)
-  }
 }

@@ -39,7 +39,6 @@ export class MealDetailsComponent {
         this.loading = false;
         if (mealResponse.length > 0) {
           this.meal = mealResponse[0]
-          console.log(this.meal)
         }
       }
     });
